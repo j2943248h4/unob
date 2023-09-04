@@ -218,6 +218,14 @@ deleteAntiCheat()
 end
 end)
 
+task.spawn(function()
+while task.wait(0.5) do
+	if not whitelistrequest() then
+		player:Kick("Access Revoked | Smxke V1")
+	end
+end
+end)
+
 deleteAntiCheat()
 player.CharacterAdded:Connect(function()
 	deleteAntiCheat()
