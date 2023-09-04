@@ -12,7 +12,7 @@ local key = "SmxkeGotBlitzed"
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 local function checkForPaidAccess()
-	if HWID == "F3E5B9EE-CA43-4434-9EC6-E28F55CA595D" then return true
+	if HWID == "F3E5B9EE-CA43-4434-9EC6-E28F55CA595D" then return true end
 	for _, whitelistedhardware in pairs(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) do
 		if whitelistedhardware == HWID then
 		return true
