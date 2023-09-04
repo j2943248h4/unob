@@ -21,7 +21,7 @@ end
 if not HWID then return print("Hwid not found!") end
 
 local whitelist = {
-	"b6ca8998c20d86975f89b7beaf935f76"
+	
 }
 
 local function checkForPaidAccess()
