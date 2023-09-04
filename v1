@@ -988,12 +988,11 @@ end)
 					task.wait()
 				end
 			until not dumpsterfarmEnabled
-		else
 			for _, part in ipairs(player.Character:GetDescendants()) do
 				if not part:IsA("BasePart") then continue end
-				part.CanCollide = false
+				part.CanCollide = true
 			end
-			player.Character.HumanoidRootPart.CFrame = originalCFrame
+			player.Character.HumanoidRootPart.CFrame = originalCFrame * CFrame.new(0,3,0)
 		end
 	
 	end    
@@ -1235,12 +1234,6 @@ Locations:AddButton({
   	end    
 })
 
-Locations:AddButton({
-	Name = "Studio",
-	Callback = function()
-      	teleportplayerCFRAME(CFrame.new(-609.440796, 3.27215624, -46.0399628, -0.00844747573, -1.15612259e-07, -0.999964297, -2.24082388e-08, 1, -1.15427085e-07, 0.999964297, 2.14323705e-08, -0.00844747573))
-  	end    
-})
 
 local fov = false
 
