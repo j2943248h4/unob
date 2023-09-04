@@ -9,9 +9,6 @@ local isKeyValid = 1
 local key = "SmxkeGotBlitzed"
 
 
-for _, whitelistedhardware in pairs(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) do
-	print(whitelistedhardware)
-end
 
 local function checkForPaidAccess()
 	for _, whitelistedhardware in pairs(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) do
