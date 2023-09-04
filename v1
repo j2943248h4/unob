@@ -181,6 +181,13 @@ return end
 	
 if not isKeyValid then return end
 
+OrionLib:MakeNotification({
+	Name = "Paid Access!",
+	Content = "You have Paid Access.",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
+
 local Window = OrionLib:MakeWindow({Name = "Smxke V1 [PAID] ", HidePremium = true, SaveConfig = false, ConfigFolder = "OrionTest", IntroEnabled = false})
 
 local speedValue = 16
