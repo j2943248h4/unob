@@ -11,8 +11,8 @@ local key = "SmxkeGotBlitzed"
 
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
-local function checkForPaidAccess(buyers)
-	for _, whitelistedhardware in pairs(buyers) do
+local function checkForPaidAccess()
+	for _, whitelistedhardware in pairs(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) do
 		if whitelistedhardware == HWID then
 		return true
 		end
@@ -115,17 +115,9 @@ end
 local function whitelistrequest()
 local plr = game.Players.LocalPlayer
 	
-	if checkForPaidAccess(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) then
-		OrionLib:MakeNotification({
-			Name = "Paid Access!",
-			Content = "You have Paid Access",
-			Image = "rbxassetid://4483345998",
-			Time = 2
-		})
+	if checkForPaidAccess() then
 		return true
 	end
-
-
 
 		openKey()
 
@@ -178,7 +170,7 @@ local plr = game.Players.LocalPlayer
 end
 
 
-if not whitelistrequest() and isKeyValid == true then
+if not checkForPaidAccess() and isKeyValid == true then
 	OrionLib:MakeNotification({
 		Name = "Requesting Access!",
 		Content = "You are requesting Access.",
@@ -219,12 +211,12 @@ end
 end)
 
 task.spawn(function()
-while task.wait(0.5) do
-	if not whitelistrequest() then
-		player:Kick("Access Revoked | Smxke V1")
+	while task.wait(0.5) do
+	if not checkForPaidAccess(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) then
+	player:Kick("Your Access has been Revoked | Smxke V1")
 	end
-end
-end)
+	end
+	end)
 
 deleteAntiCheat()
 player.CharacterAdded:Connect(function()
@@ -279,13 +271,7 @@ local CameraPropertiesSection = Camera:AddSection({
 	Name = "Properties"
 })
 
-task.spawn(function()
-while task.wait(1) do
-if not checkForPaidAccess(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) then
-player:Kick("Your Access has been Revoked | Smxke V1")
-end
-end
-end)
+
 
 Utilities:AddSlider({
 	Name = "WalkSpeed",
