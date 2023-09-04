@@ -420,6 +420,7 @@ Utilities:AddTextbox({
 })
 
 local giveallmoneyToggle = false
+
 Utilities:AddToggle({
 	Name = "Funnel Money",
 	Default = false,
@@ -436,6 +437,30 @@ Utilities:AddToggle({
 		end
 	end    
 })
+
+local moneyauraEnabled = false
+
+Utilities:AddToggle({
+	Name = "Money Aura",
+	Default = false,
+	Callback = function(Value)
+		moneyauraEnabled = Value
+		if moneyauraEnabled then
+			local dollas = workspace.Dollas
+			repeat
+				for _, money in ipairs(dollas:GetChildren()) do
+					if not money:FindFirstChildWhichIsA("ProximityPrompt") then continue end
+					if (player.Character.HumanoidRootPart.Position - money.Position).Magnitude < 15 then
+						fireproximityprompt(money.ProximityPrompt, 1, true)
+						task.wait()
+					end
+				end
+				task.wait()
+			until not moneyauraEnabled
+		end
+	end    
+})
+
 
 userInputService.JumpRequest:Connect(function()
 
@@ -482,6 +507,25 @@ Combat:AddToggle({
 	Callback = function(Value)
 		nukeEnabled = Value
 	end    
+})
+
+local killaurawhitelist = "jim"
+Combat:AddTextbox({
+	Name = "KillAuraWhitelist",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(Value)
+		killaurawhitelist = Value
+		if game.Players:FindFirstChild(Value) then
+			OrionLib:MakeNotification({
+				Name = "Found Target!",
+				Content = Value,
+				Image = "rbxassetid://4483345998",
+				Time = 3
+			})
+		end
+
+	end	  
 })
 
 Combat:AddToggle({
