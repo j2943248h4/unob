@@ -1,6 +1,7 @@
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local userInputService = game:GetService("UserInputService")
 
+print("new")
 
 local ChatEvents = replicatedStorage.DefaultChatSystemChatEvents
 
