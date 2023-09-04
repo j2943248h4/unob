@@ -219,7 +219,7 @@ end)
 
 task.spawn(function()
 	while task.wait(0.5) do
-	if not checkForPaidAccess(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) then
+	if not checkForPaidAccess() then
 	player:Kick("Your Access has been Revoked | Smxke V1")
 	end
 	end
