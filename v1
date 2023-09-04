@@ -17,9 +17,7 @@ local whitelist = {
 
 local function checkForPaidAccess()
 	for _, whitelistedhardware in pairs(whitelist) do
-print(whitelistedhardware, HWID)
 		if whitelistedhardware == HWID then
-
 		return true
 		end
 	end
