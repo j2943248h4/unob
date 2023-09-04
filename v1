@@ -9,7 +9,15 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local isKeyValid = 1
 local key = "SmxkeGotBlitzed"
 
-local buyers = loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+
+local function checkForPaidAccess(buyers)
+	for _, whitelistedhardware in pairs(buyers) do
+		if whitelistedhardware == HWID then
+		return true
+		end
+	end
+end
 
 local function openKey()
 
@@ -102,24 +110,21 @@ local function openKey()
 	
 end
 
-local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 
 local function whitelistrequest()
 local plr = game.Players.LocalPlayer
 	
-	
-for _, whitelistedhardware in pairs(buyers) do
-if whitelistedhardware == HWID then
-OrionLib:MakeNotification({
-	Name = "Paid Access!",
-	Content = "You have Paid Access",
-	Image = "rbxassetid://4483345998",
-	Time = 2
-})
-return true
-end
-end
+	if checkForPaidAccess(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) then
+		OrionLib:MakeNotification({
+			Name = "Paid Access!",
+			Content = "You have Paid Access",
+			Image = "rbxassetid://4483345998",
+			Time = 2
+		})
+		return true
+	end
+
 
 
 		openKey()
@@ -266,6 +271,13 @@ local CameraPropertiesSection = Camera:AddSection({
 	Name = "Properties"
 })
 
+task.spawn(function()
+while task.wait(1) do
+if not checkForPaidAccess(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) then
+player:Kick("Your Access has been Revoked | Smxke V1")
+end
+end
+end)
 
 Utilities:AddSlider({
 	Name = "WalkSpeed",
