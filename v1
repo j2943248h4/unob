@@ -5,15 +5,13 @@ local ChatEvents = replicatedStorage.DefaultChatSystemChatEvents
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-print("new")
-
 local isKeyValid = 1
 local key = "SmxkeGotBlitzed"
 
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 local function checkForPaidAccess()
-	for _, whitelistedhardware in pairs(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) do
+	for _, whitelistedhardware in pairs(loadstring(game:HttpGet("https://raw.githubusercontent.com/j2943248h4/hwids/main/list"))()) do
 		if whitelistedhardware == HWID then
 		return true
 		end
