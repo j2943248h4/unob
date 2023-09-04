@@ -8,7 +8,6 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local isKeyValid = 1
 local key = "SmxkeGotBlitzed"
 
-local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 for _, whitelistedhardware in pairs(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) do
 	print(whitelistedhardware)
