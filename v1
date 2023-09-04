@@ -9,10 +9,10 @@ local isKeyValid = 1
 local key = "SmxkeGotBlitzed"
 
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-
 local whitelist = {
 	"B80DD1EF-D4AB-4F88-973A-496793A4C073", --brobrobro
-	"57F5029C-0C7A-4191-8D9A-089F9893F4B1",
+	"73473CCF-EBFF-439C-AE89-966F5CA87C2E",
+	"B26625D3-1771-463A-87E5-EC94F2E2014D"
 }
 
 local function checkForPaidAccess()
