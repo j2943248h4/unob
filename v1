@@ -1,8 +1,6 @@
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local userInputService = game:GetService("UserInputService")
 
-print("new")
-
 local ChatEvents = replicatedStorage.DefaultChatSystemChatEvents
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
@@ -13,7 +11,6 @@ local key = "SmxkeGotBlitzed"
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 local function checkForPaidAccess()
-	if HWID == "F3E5B9EE-CAA3-4434-9EC6-E28F55CA5950" then return true end
 	for _, whitelistedhardware in pairs(loadstring(game:HttpGet("https://pastebin.com/raw/gdnErqGd"))()) do
 		if whitelistedhardware == HWID then
 		return true
