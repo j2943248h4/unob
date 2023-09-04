@@ -170,7 +170,7 @@ local plr = game.Players.LocalPlayer
 end
 
 
-if not checkForPaidAccess() and isKeyValid == true then
+if not whitelistrequest() and isKeyValid == true then
 	OrionLib:MakeNotification({
 		Name = "Requesting Access!",
 		Content = "You are requesting Access.",
