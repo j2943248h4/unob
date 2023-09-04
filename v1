@@ -8,11 +8,20 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local isKeyValid = 1
 local key = "SmxkeGotBlitzed"
 
-local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+local http_request = (syn and syn.request) or http_request or request or httprequest or httpRequest or Request;
+
+local body = http_request({Url = 'https://httpbin.org/get'; Method = 'GET'}).Body;
+local decoded = game:GetService('HttpService'):JSONDecode(body)
+local headers = decoded.headers
+local HWID;
+
+for i,v in pairs(headers) do
+     if type(i)=="string" and i:lower():match("fingerprint") then HWID = v end
+end
+if not HWID then return print("Hwid not found!") end
+
 local whitelist = {
-	"B80DD1EF-D4AB-4F88-973A-496793A4C073", --brobrobro
-	"73473CCF-EBFF-439C-AE89-966F5CA87C2E",
-	"57F5029C-0C7A-4191-8D9A-089F9893F4B1"
+	"b6ca8998c20d86975f89b7beaf935f76"
 }
 
 local function checkForPaidAccess()
